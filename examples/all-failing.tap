@@ -1,0 +1,49 @@
+1..3
+not ok 1 HelloWorld.helloWorld / Hello with no name
+  ---
+  message: expected "Hello, World!", got "Hallo, World!"
+  stack: |-
+    Error: expected "Hello, World!", got "Hallo, World!"
+        at Object.exports.error (/home/purescript/exercism/purescript/hello-world/output/Effect.Exception/foreign.js:8:10)
+        at Object.failure (/home/purescript/exercism/purescript/hello-world/output/Test.Unit/index.js:309:38)
+        at /home/purescript/exercism/purescript/hello-world/output/Test.Unit.Assert/index.js:40:34
+        at Object.<anonymous> (/home/purescript/exercism/purescript/hello-world/output/Test.Main/index.js:12:247)
+        at Module._compile (internal/modules/cjs/loader.js:689:30)
+        at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+        at Module.load (internal/modules/cjs/loader.js:599:32)
+        at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+        at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+        at Module.require (internal/modules/cjs/loader.js:637:17)
+  ...
+not ok 2 HelloWorld.helloWorld / Hello to a sample name
+  ---
+  message: expected "Hello, Alice!", got "Hallo, Alice!"
+  stack: |-
+    Error: expected "Hello, Alice!", got "Hallo, Alice!"
+        at Object.exports.error (/home/purescript/exercism/purescript/hello-world/output/Effect.Exception/foreign.js:8:10)
+        at Object.failure (/home/purescript/exercism/purescript/hello-world/output/Test.Unit/index.js:309:38)
+        at /home/purescript/exercism/purescript/hello-world/output/Test.Unit.Assert/index.js:40:34
+        at /home/purescript/exercism/purescript/hello-world/output/Test.Main/index.js:13:208
+        at $tco_loop (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:78:60)
+        at toView (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:92:23)
+        at go (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:236:17)
+        at /home/purescript/exercism/purescript/hello-world/output/Control.Semigroupoid/index.js:9:20
+        at $tco_loop (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:78:60)
+        at toView (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:92:23)
+  ...
+not ok 3 HelloWorld.helloWorld / Hello to another sample name
+  ---
+  message: expected "Hello, Bob!", got "Hallo, Bob!"
+  stack: |-
+    Error: expected "Hello, Bob!", got "Hallo, Bob!"
+        at Object.exports.error (/home/purescript/exercism/purescript/hello-world/output/Effect.Exception/foreign.js:8:10)
+        at Object.failure (/home/purescript/exercism/purescript/hello-world/output/Test.Unit/index.js:309:38)
+        at /home/purescript/exercism/purescript/hello-world/output/Test.Unit.Assert/index.js:40:34
+        at /home/purescript/exercism/purescript/hello-world/output/Test.Main/index.js:14:140
+        at $tco_loop (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:78:60)
+        at toView (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:92:23)
+        at go (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:236:17)
+        at /home/purescript/exercism/purescript/hello-world/output/Control.Semigroupoid/index.js:9:20
+        at $tco_loop (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:78:60)
+        at toView (/home/purescript/exercism/purescript/hello-world/output/Control.Monad.Free/index.js:92:23)
+  ...

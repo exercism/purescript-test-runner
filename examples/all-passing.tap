@@ -1,0 +1,4 @@
+1..3
+ok 1 HelloWorld.helloWorld / Hello with no name
+ok 2 HelloWorld.helloWorld / Hello to a sample name
+ok 3 HelloWorld.helloWorld / Hello to another sample name
