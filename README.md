@@ -12,3 +12,5 @@ This repository contains the Java test runner, which implements the
 To run a solution's test in the Docker container, do the following:
 1. Open terminal in project's root
 2. Run `./run-in-docker.sh <exercise> <solution-folder> <output-folder>`
+
+[test-runner-interface]: https://github.com/exercism/automated-tests/blob/master/docs/interface.md
