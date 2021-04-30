@@ -2,3 +2,6 @@
 .*.swp
 *.cabal
 stack.yaml
+tests/*/node_modules/
+tests/*/bower_components/
+tests/*/results.json
