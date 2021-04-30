@@ -15,5 +15,7 @@ RUN npm install
 COPY bower.json .
 RUN ./node_modules/.bin/bower install --allow-root
 
+# TODO: pre-compile standard library and copy output directory in run.sh
+
 COPY . .
 ENTRYPOINT ["/opt/test-runner/bin/run.sh"]

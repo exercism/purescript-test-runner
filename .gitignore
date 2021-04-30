@@ -4,4 +4,6 @@
 stack.yaml
 tests/*/node_modules/
 tests/*/bower_components/
+tests/*/.pulp-cache/
+tests/*/output/
 tests/*/results.json

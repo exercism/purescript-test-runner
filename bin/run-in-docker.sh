@@ -33,9 +33,9 @@ mkdir -p "${output_dir}"
 docker build --rm -t exercism/test-runner .
 
 # Run the Docker image using the settings mimicking the production environment
-# --network none
-# --read-only
 docker run \
+    --read-only \
+    --network none \
     --mount type=bind,src="${input_dir}",dst=/solution \
     --mount type=bind,src="${output_dir}",dst=/output \
     --mount type=tmpfs,dst=/tmp \
