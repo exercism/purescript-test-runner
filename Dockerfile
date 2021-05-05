@@ -8,14 +8,16 @@ RUN apt-get update && \
 
 WORKDIR /opt/test-runner
 
-# Pre-install packages
-COPY package.json package-lock.json ./
+ENV PATH="/opt/test-runner/node_modules/.bin:$PATH" 
+
+COPY pre-compiled/package.json pre-compiled/package-lock.json ./
 RUN npm install
 
-COPY bower.json .
-RUN ./node_modules/.bin/bower install --allow-root
+COPY pre-compiled/bower.json .
+RUN bower install --allow-root
 
-# TODO: pre-compile standard library and copy output directory in run.sh
+COPY pre-compiled/ .
+RUN pulp build
 
 COPY . .
 ENTRYPOINT ["/opt/test-runner/bin/run.sh"]
