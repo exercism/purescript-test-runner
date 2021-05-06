@@ -34,11 +34,9 @@ echo "${slug}: testing..."
 
 pushd "${input_dir}" > /dev/null
 
-cp -r "${root_dir}/node_modules" .
-cp -r "${root_dir}/bower_components" .
-
-# Required to have pulp find the `purs` executable
-export PATH="./node_modules/.bin:$PATH"
+ln -s "${root_dir}/node_modules"
+ln -s "${root_dir}/bower_components"
+cp -r "${root_dir}/output" . # We can't symlink this as pulp needs to write to it
 
 # Run the tests for the provided implementation file and redirect stdout and
 # stderr to capture it
