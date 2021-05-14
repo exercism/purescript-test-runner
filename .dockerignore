@@ -1,3 +1,6 @@
-.git/
-.github/
-tests/
+# These directories are created during the install/build step inside the
+# container (see Dockerfile). We don't want to copy any leftovers from the
+# local file-system here.
+pre-compiled/.spago
+pre-compiled/node_modules
+pre-compiled/output

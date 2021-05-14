@@ -15,17 +15,22 @@
 set -o pipefail
 set -u
 
+if [ $# != 1 ]; then
+    echo "Usage ${BASH_SOURCE[0]} /path/to/exercises"
+    exit 1
+fi
+
 base_dir=$(builtin cd "${BASH_SOURCE%/*}/.." || exit; pwd)
+exercises_dir="${1%/}"
 
 # Build the Docker image
-docker build --rm -t exercism/test-runner .
+docker build --rm -t exercism/test-runner "${base_dir}"
 
-# Run the Docker image using the settings mimicking the production environment
-docker run \
-    --network none \
-    --read-only \
-    --mount type=bind,source="${base_dir}/tests",destination=/opt/test-runner/tests \
-    --mount type=tmpfs,destination=/tmp \
-    --workdir /opt/test-runner \
-    --entrypoint /opt/test-runner/bin/run-tests.sh \
-    exercism/test-runner
+for config in "${exercises_dir}"/*/*/.solution.dhall; do
+    exercise_dir=$(dirname "${config}")
+    slug=$(basename "${exercise_dir}")
+
+    echo "Working in ${exercise_dir}..."
+
+    "${base_dir}/bin/run-in-docker.sh" "${slug}" "${exercise_dir}" /tmp
+done
