@@ -1,5 +1,5 @@
 {
   "version": 1,
   "status": "fail",
-  "output": "\u001b[01;31m\u001b[KError found:\u001b[m\u001b[K\nat src/Leap.purs line 1, column 14 - line 1, column 14\n\n  Unable to parse module:\n  unexpected !@!@#\n  expecting ( or \"where\"\n\n\nSee https://github.com/purescript/documentation/blob/master/errors/ErrorParsingModule.md for more information,\nor to contribute content related to this error.\n\n\n\u001b[01;31m\u001b[K* ERROR: Subcommand terminated with exit code 1\u001b[m\u001b[K"
+  "message": "\u001b[01;31m\u001b[KError found:\u001b[m\u001b[K\nat src/Leap.purs line 1, column 14 - line 1, column 14\n\n  Unable to parse module:\n  unexpected !@!@#\n  expecting ( or \"where\"\n\n\nSee https://github.com/purescript/documentation/blob/master/errors/ErrorParsingModule.md for more information,\nor to contribute content related to this error.\n\n\n\u001b[01;31m\u001b[K* ERROR: Subcommand terminated with exit code 1\u001b[m\u001b[K"
 }

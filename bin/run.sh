@@ -63,7 +63,7 @@ else
 
     printf "${colorized_test_output}"
 
-    jq -n --arg output "${colorized_test_output}" '{version: 1, status: "fail", output: $output}' > ${results_file}
+    jq -n --arg output "${colorized_test_output}" '{version: 1, status: "fail", message: $output}' > ${results_file}
 fi
 
 echo "${slug}: done"
