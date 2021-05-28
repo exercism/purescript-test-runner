@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Synopsis:
 # Test the test runner by running it against a predefined set of solutions 
@@ -11,28 +11,25 @@
 # Example:
 # ./bin/run-tests.sh
 
+set -o pipefail
+set -u
+
 exit_code=0
 
-# Iterate over all test directories
-for test_dir in tests/*; do
-    test_dir_name=$(basename "${test_dir}")
-    test_dir_path=$(realpath "${test_dir}")
-    results_file_path="${test_dir_path}/results.json"
-    expected_results_file_path="${test_dir_path}/expected_results.json"
+base_dir=$(builtin cd "${BASH_SOURCE%/*}/.." || exit; pwd)
 
-    bin/run.sh "${test_dir_name}" "${test_dir_path}" "${test_dir_path}"
+# Iterate over all test Spago projects
+for config in "${base_dir}"/tests/*/spago.dhall; do
+    exercise_dir=$(dirname "${config}")
+    slug=$(basename "${exercise_dir}")
+    expected_results_file="${exercise_dir}/expected_results.json"
+    actual_results_file="${exercise_dir}/results.json"
 
-    # Normalize the results file
-    sed -i -E \
-      -e 's/Time:.*[0-9]+\.[0-9]+s//g' \
-      -e 's/ *\([0-9]+ms\)//g' \
-      -e "s~${test_dir_path}~/solution~g" \
-      "${results_file_path}"
+    bin/run.sh "${slug}" "${exercise_dir}" "${exercise_dir}"
 
-    echo "${test_dir_name}: comparing results.json to expected_results.json"
-    diff "${results_file_path}" "${expected_results_file_path}"
+    echo "${slug}: comparing results.json to expected_results.json"
 
-    if [ $? -ne 0 ]; then
+    if ! diff -u "${actual_results_file}" "${expected_results_file}"; then
         exit_code=1
     fi
 done

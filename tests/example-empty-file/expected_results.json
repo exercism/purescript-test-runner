@@ -1,5 +1,5 @@
 {
   "version": 1,
   "status": "fail",
-  "message": "\u001b[01;31m\u001b[KError found:\u001b[m\u001b[K\nat src/Leap.purs line 1, column 1 - line 1, column 1\n\n  Unable to parse module:\n  unexpected end of input\n\n\nSee https://github.com/purescript/documentation/blob/master/errors/ErrorParsingModule.md for more information,\nor to contribute content related to this error.\n\n\n\u001b[01;31m\u001b[K* ERROR: Subcommand terminated with exit code 1\u001b[m\u001b[K"
+  "message": "Error found:\n\n  Unable to parse module:\n  Unexpected end of input\n\n\nSee https://github.com/purescript/documentation/blob/master/errors/ErrorParsingModule.md for more information,\nor to contribute content related to this error.\n\n\n[error] Failed to build."
 }

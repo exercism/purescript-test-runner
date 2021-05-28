@@ -1,3 +1,13 @@
+.dockerignore
 .git/
 .github/
+Dockerfile
+examples/
+tap2json/
 tests/
+# The following pre-compiled sub-directories are created during the
+# install/build step inside the container (see Dockerfile). We don't want any
+# leftovers from the local file-system here.
+pre-compiled/.spago
+pre-compiled/node_modules
+pre-compiled/output
