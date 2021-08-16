@@ -5,7 +5,7 @@
   "author": "Erik Schierboom",
   "license": "agpl-3.0",
   "devDependencies": {
-    "purescript": "0.13.8",
-    "spago": "^0.20.2"
+    "purescript": "^0.14.3",
+    "spago": "^0.20.3"
   }
 }
