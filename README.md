@@ -4,7 +4,7 @@ The Docker image for automatically run tests on PureScript solutions submitted
 to [exercism][web-exercism].
 
 This repository contains the PureScript test runner, which implements the
-[test runner interface][test-runner-interface].
+[test runner interface](https://exercism.org/docs/building/tooling/test-runners/interface).
 
 
 ## Running the Tests in Docker container
