@@ -12,3 +12,4 @@ pre-compiled/.spago
 pre-compiled/node_modules
 pre-compiled/output
 .appends
+.gitignore
