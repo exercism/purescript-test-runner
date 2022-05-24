@@ -25,7 +25,7 @@ for config in "${base_dir}"/tests/*/spago.dhall; do
     expected_results_file="${exercise_dir}/expected_results.json"
     actual_results_file="${exercise_dir}/results.json"
 
-    bin/run.sh "${slug}" "${exercise_dir}" "${exercise_dir}"
+    "${base_dir}"/bin/run.sh "${slug}" "${exercise_dir}" "${exercise_dir}"
 
     echo "${slug}: comparing results.json to expected_results.json"
 
