@@ -2,7 +2,6 @@
 , dependencies =
   [ "effect"
   , "prelude"
-  , "psci-support"
   , "test-unit"
   ]
 , packages = ./packages.dhall

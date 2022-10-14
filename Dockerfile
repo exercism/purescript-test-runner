@@ -1,11 +1,11 @@
-FROM node:16-buster-slim
+FROM node:18.9.1-bullseye-slim
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    ca-certificates=20200601~deb10u2 \
-    git=1:2.20.1-2+deb10u3 \
-    jq=1.5+dfsg-2+b1 \
-    libncurses5=6.1+20181013-2+deb10u2 \
+    ca-certificates=20210119 \
+    git=1:2.30.2-1 \
+    jq=1.6-2.1 \
+    libncurses5=6.2+20201114-2 \
   && apt-get purge --auto-remove -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
