@@ -1,5 +1,5 @@
 {
   "version": 1,
   "status": "fail",
-  "message": "[info] Build succeeded.\n- Suite: Leap.isLeapYear\n  ✓ Passed: leap year\n  ✓ Passed: non-leap year\n  ✓ Passed: non-leap even year\n  ✓ Passed: century\n  ✓ Passed: second century\n  ☠ Failed: fourth century because expected true, got false\n  ☠ Failed: y2k because expected true, got false\n\n2 tests failed:\n\nIn \"Leap.isLeapYear\":\n  In \"y2k\":\nError: Error: expected true, got false\n\nIn \"Leap.isLeapYear\":\n  In \"fourth century\":\nError: Error: expected true, got false\n\n[error] Tests failed: exit code: 1"
+  "message": "[1 of 2] Compiling Leap\n[2 of 2] Compiling Test.Main\n[info] Build succeeded.\n- Suite: Leap.isLeapYear\n  ✓ Passed: leap year\n  ✓ Passed: non-leap year\n  ✓ Passed: non-leap even year\n  ✓ Passed: century\n  ✓ Passed: second century\n  ☠ Failed: fourth century because expected true, got false\n  ☠ Failed: y2k because expected true, got false\n\n2 tests failed:\n\nIn \"Leap.isLeapYear\":\n  In \"y2k\":\nError: Error: expected true, got false\n\nIn \"Leap.isLeapYear\":\n  In \"fourth century\":\nError: Error: expected true, got false\n\n[error] Tests failed: exit code: 1"
 }
