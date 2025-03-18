@@ -6,6 +6,6 @@
   "license": "agpl-3.0",
   "devDependencies": {
     "purescript": "^0.15.15",
-    "spago": "^0.20.9"
+    "spago": "^0.21.0"
   }
 }
