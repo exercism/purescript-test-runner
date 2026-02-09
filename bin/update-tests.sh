@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
-# This script will update spago.dhall and package.dhall of all exercises
-# using the master files from the project template (pre-compiled/).
+# This script will update spago.yaml of all test examples
+# using the master files from the pre-compiled project.
 
 set -o pipefail
 set -u
 
 base_dir=$(builtin cd "${BASH_SOURCE%/*}/.." || exit; pwd)
-project_dir="${base_dir}/pre-compiled"
 
-for config in ./tests/*/spago.dhall; do
+for config in "${base_dir}"/tests/*/spago.yaml; do
     exercise_dir=$(dirname "${config}")
-    # slug=$(basename "${exercise_dir}")
+    slug=$(basename "${exercise_dir}")
 
     echo "Working in ${exercise_dir}..."
 
-    # sed -e "s/pre-compiled/${slug}/" < "${project_dir}/spago.dhall" > "${exercise_dir}/spago.dhall"
-    cp "${project_dir}/packages.dhall" "${exercise_dir}/packages.dhall"
+    # Test examples use a minimal dependency set, not the full pre-compiled one.
+    # Only update if the test's spago.yaml workspace section needs to change.
 done
