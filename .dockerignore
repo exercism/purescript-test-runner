@@ -11,6 +11,7 @@ tests/
 pre-compiled/.spago
 pre-compiled/node_modules
 pre-compiled/output
+pre-compiled/spago.lock
 .appends
 .gitignore
 .gitattributes

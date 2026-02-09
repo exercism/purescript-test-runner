@@ -1,5 +1,5 @@
 {
   "version": 1,
   "status": "fail",
-  "message": "Error found:\n\n  Unable to parse module:\n  Unexpected token '!@!@#'\n\n\nSee https://github.com/purescript/documentation/blob/master/errors/ErrorParsingModule.md for more information,\nor to contribute content related to this error.\n\n\n[error] Failed to build."
+  "message": "[ERROR 1/1 ErrorParsingModule] src/Leap.purs:1:14\n\n  1  module LeapWR!@!@#` whereqw\n                  ^^^^^\n\n  Unable to parse module:\n  Unexpected token '!@!@#'"
 }
