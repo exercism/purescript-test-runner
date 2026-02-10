@@ -87,42 +87,29 @@ popd > /dev/null || exit
 if [ $exit_code -eq 0 ]; then
     jq -n '{version: 1, status: "pass"}' > "${results_file}"
 else
-    # Sanitize output: remove spago/build preamble and noise, keep compiler
-    # errors and test failure output. Strip JS stack traces from test failures.
-    sanitized_spago_output=$(echo "${spago_output}" | sed -E \
-      -e '/^Reading Spago workspace/d' \
-      -e '/^✓ Selecting package/d' \
-      -e '/^Checking dependencies/d' \
-      -e '/^Downloading dependencies/d' \
-      -e '/^No lockfile found/d' \
-      -e '/^Lockfile written/d' \
-      -e '/^Building\.\.\./d' \
-      -e '/^\[[[:space:]]*[0-9]+ of [0-9]+\] Compiling /d' \
-      -e '/^✓ Build succeeded/d' \
-      -e '/^Running tests for package/d' \
-      -e '/^✘ Tests failed/d' \
-      -e '/^✘ Failed to build/d' \
-      -e '/^[[:space:]]+Src[[:space:]]+Lib[[:space:]]+All/d' \
-      -e '/^Warnings[[:space:]]+[0-9]/d' \
-      -e '/^Errors[[:space:]]+[0-9]/d' \
-      -e '/^[[:space:]]+at .*(\.js|\.mjs|node:internal).*:[0-9]/d' \
-      -e '/^\[WARNING /,/^$/d')
-
-    # Remove leading/trailing blank lines and collapse runs of 3+ blank lines
-    sanitized_spago_output=$(printf '%s\n' "${sanitized_spago_output}" | awk '
-        { a[NR] = $0 }
-        END {
-            # Find first and last non-empty lines
-            s = 1; e = NR
-            while (s <= NR && a[s] == "") s++
-            while (e >= s && a[e] == "") e--
-            # Print, collapsing runs of 3+ blank lines to 2
-            blank = 0
-            for (i = s; i <= e; i++) {
-                if (a[i] == "") { blank++; if (blank <= 2) print a[i] }
-                else { blank = 0; print a[i] }
-            }
-        }
+    sanitized_spago_output=$(printf '%s\n' "${spago_output}" | awk '
+        BEGIN { blanks = 2 }
+        /^Reading Spago workspace/ || \
+        /^✓ Selecting package/ || \
+        /^Checking dependencies/ || \
+        /^Downloading dependencies/ || \
+        /^No lockfile found/ || \
+        /^Lockfile written/ || \
+        /^Building\.\.\./ || \
+        /^\[[[:space:]]*[0-9]+ of [0-9]+\] Compiling / || \
+        /^✓ Build succeeded/ || \
+        /^Running tests for package/ || \
+        /^✘ Tests failed/ || \
+        /^✘ Failed to build/ || \
+        /^[[:space:]]+Src[[:space:]]+Lib[[:space:]]+All/ || \
+        /^Warnings[[:space:]]+[0-9]/ || \
+        /^Errors[[:space:]]+[0-9]/ || \
+        /^[[:space:]]+at .*(\.js|\.mjs|node:internal).*:[0-9]/ { next }
+        /^\[WARNING / { warn = 1; next }
+        warn && /^$/ { warn = 0; next }
+        warn { next }
+        NF { blanks = 0; print; next }
+        blanks < 2 { blanks++; print }
     ')
 
     jq --null-input --arg output "${sanitized_spago_output}" '{version: 1, status: "fail", message: $output}' > "${results_file}"
