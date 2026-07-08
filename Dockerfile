@@ -1,5 +1,5 @@
-# Spago 1.0.3 requires Node.js >= 22.5.0 (uses node:sqlite built-in module)
-FROM node:22-bookworm-slim@sha256:d415caac2f1f77b98caaf9415c5f807e14bc8d7bdea62561ea2fef4fbd08a73c
+# node:lts-slim == node:24.18.0-bookworm-slim on 2026-07-07
+FROM node:24.18.0-bookworm-slim@sha256:cb4e8f7c443347358b7875e717c29e27bf9befc8f5a26cf18af3c3dec80e58c5
 
 # Install system dependencies:
 # - ca-certificates: HTTPS support for downloading packages from the registry
