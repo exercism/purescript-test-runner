@@ -1,5 +1,5 @@
 # node:lts-slim == node:24.18.0-bookworm-slim on 2026-07-07
-FROM node:26.9.0-bookworm-slim@sha256:582460f614631b59b824ac6020533b9bf339c7fdf3a6d7db31abb6b4065f0212
+FROM node:26.13.0-bookworm-slim@sha256:bc0a2afd3b74ce12222fc8bab99271e66257f021078f5f4a5d687a77d280c1d9
 
 # Install system dependencies:
 # - ca-certificates: HTTPS support for downloading packages from the registry
